@@ -20,11 +20,13 @@ function main()
   ver1 = document.getElementById('play1')
   ver2 = document.getElementById('play2')
   ver3 = document.getElementById('play3')
+  loop = document.getElementById('loop')
 
   //-- Al apretar el boton de ver video
   video1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
   video2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
   video3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
+
   function hora(segundos){
     var d=new Date(segundos*1000);
     // Ajuste de las 23 horas
@@ -40,7 +42,6 @@ function main()
     video1.style.border = '5px solid gray';
     video2.style.border = '0px';
     video3.style.border = '0px';
-    tiempo.innerHTML = hora(display.currentTime);
   }
   ver2.onclick = () => {
     display.src =video2.src;
@@ -56,6 +57,14 @@ function main()
     video2.style.border = '0px';
     video1.style.border = '0px';
   }
+  loop.onclick = () => {
+    display.loop = false;
+  }
+
+  setInterval(()=>{
+    tiempo.innerHTML = hora(display.currentTime);
+  },20); //-- timer
+
   video1.onmouseover = () => {
     video1.muted=false;
   }
