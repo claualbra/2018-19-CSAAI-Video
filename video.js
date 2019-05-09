@@ -21,6 +21,7 @@ function main()
   ver2 = document.getElementById('play2')
   ver3 = document.getElementById('play3')
   loop = document.getElementById('loop')
+  var finish = 0;
 
   //-- Al apretar el boton de ver video
   video1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
@@ -58,10 +59,35 @@ function main()
     video1.style.border = '0px';
   }
   loop.onclick = () => {
-    display.loop = false;
+    if (loop.style.border == '5px solid gray') {
+         loop.style.border = '0px';
+         init = 0;
+         finish = 0;
+         // Si se quita el bucle el video vuelve a sincro con los pequeños
+         if (video1.style.border == '5px solid gray'){
+           display.currentTime = video1.currentTime;
+         }
+         if (video2.style.border == '5px solid gray'){
+           display.currentTime = video2.currentTime;
+         }
+         if (video3.style.border == '5px solid gray'){
+           display.currentTime = video3.currentTime;
+         }
+     } else {
+         init = new Number(document.getElementById("start").value);
+         finish = document.getElementById("end").value;
+         loop.style.border = '5px solid gray';
+         display.currentTime = init;
+     }
   }
 
+
   setInterval(()=>{
+    if (finish != 0){
+         if (display.currentTime > finish){
+             display.currentTime = init;
+         }
+     }
     tiempo.innerHTML = hora(display.currentTime);
   },20); //-- timer
 

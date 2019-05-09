@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>VIDEO</title>
     <script src="video.js"> </script>
+    <link rel="stylesheet" href="video.css">
   </head>
   <body onload="main();">
     <video id="video1" autoplay loop muted>
@@ -13,13 +14,18 @@
     <video id="video3" autoplay loop muted>
     </video>
     <br>
-
-   <button type="button" id="play1">Video1</button>
-   <button type="button" id="play2">Vidio2</button>
-   <button type="button" id="play3">Video3</button>
-   <button type="button" id="loop">Quitar loop al video seleccionado</button>
-   <br>
-   <video id="display" autoplay loop muted></video>
-   <p id="tiempo"></p>
+    <button type="button" id="loop">LOOP</button>
+    <br>
+    <span id="st1">Inicio</span>
+    <input type="text" class="input" value="" id="start">
+    <span id="en1">Final</span>
+    <input type="text" class="input" value="" id="end">
+    <br>
+    <button type="button" id="play1">Video1</button>
+    <button type="button" id="play2">Vidio2</button>
+    <button type="button" id="play3">Video3</button>
+    <br>
+    <h1 id="tiempo"></h1>
+    <video id="display" autoplay loop muted></video>
   </body>
 </html>
